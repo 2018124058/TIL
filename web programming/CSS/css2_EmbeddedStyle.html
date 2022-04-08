@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--Embedded Style-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Embedded Style</title>
+
+        <style type = "text/css">
+            body        {font-family: Arial, Helvetica, sans-serif;}
+            em          { background-color: yellow;
+                        font-weight: bold;
+                        color: orangered;}
+
+            h1          { font-family: helvetica, sans-serif;}
+            p           { font-size: 12pt;
+                        font-family: arial, sans-serif;}
+            .special    { color: plum;}
+            li em       {color: greenyellow;} /* em 보다 li em이 더 구체적, 우선 적용*/
+            ul          {margin-left: 50px;}
+            ul ol       {margin-top: 10px;
+                        font-size: .8em;}
+            
+            a           {text-decoration: none;}
+            a:hover     {text-decoration: unerline;
+                        color: pink;}
+
+        </style>
+    </head>
+    
+    <body>
+        <h1 class = "special">special class heading 1</h1>
+        <p> text without style</p>
+        <h1>클래스가 없는 heading1</h1>
+        <p class = "special"> special class <em>paragraph</em></p>
+        <hr>
+        <h1>shopping list for <em>Monday</em>:</h1>
+        <ul>
+            <li>휴지</li>
+            <li>봄옷</li>
+                <ol>
+                    <li>긴팔티</li>
+                    <li>바지</li>
+                    <li>양말</li>
+                </ol>
+            <li>샐러드</li>
+            <li>포켓몬빵 <em>씰스티커 든 걸로</em></li>    
+        </ul>
+        <p> Go to
+            <a href = "http://www.naver.com">
+                네이버 검색
+            </a>
+        </p>
+
+    </body>
+</html>

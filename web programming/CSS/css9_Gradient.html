@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Gradient</title>
+        <style type = "text/css">
+            #vertical   {width: 200px; height: 200px;
+                        margin: 1em; border: 3px solid navy;
+                        padding: 5px 20px; text-align: center;
+                        background: linear-gradient(to top, white 20%, pink 50%, skyblue 80% );
+                        margin-right: 15px;}
+                
+            #horizontal  {width: 200px; height: 200px;
+                        margin: 1em; border: 3px solid navy;
+                        padding: 5px 20px; text-align: center;
+                        background: linear-gradient(to right, white 20%, pink 50%, skyblue 80% );
+                        margin-right: 15px;}
+            
+            #diagonal  {width: 200px; height: 200px;
+                        margin: 1em; border: 3px solid navy;
+                        padding: 5px 20px; text-align: center;
+                        background: linear-gradient(135deg, white 20%, pink 50%, skyblue 80% );
+                        margin-right: 15px;}
+
+            #radial  {width: 200px; height: 200px;
+                        margin: 1em; border: 3px solid navy;
+                        padding: 5px 20px; text-align: center;
+                        background: radial-gradient(ellipse at center, white, pink, skyblue);
+                        margin-right: 15px;}
+    
+        </style>
+    </head>
+
+
+    <body>
+        <div id = "vertical">vertical linear gradient</div>
+        <div id = "horizontal">horizontal linear gradient</div>
+        <div id = "diagonal">diagonal linear gradient</div>
+        <div id = "radial">radial linear gradient</div>
+    </body>
+</html>

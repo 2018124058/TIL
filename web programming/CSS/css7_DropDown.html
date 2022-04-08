@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Drop down menu</title>
+        <style type = "text/css">
+            nav     {font-weight: bold;
+                    color: white;
+                    border: 2px solid royalblue;
+                    text-align: center;
+                    width: 10em;
+                    background-color: royalblue}
+
+            nav ul  {display: none;
+                    list-style: none; /*list default bullet 없애줌*/
+                    margin: 0;
+                    padding: 0;}    /*여기까지만 지정하면 menu만 보임*/
+            
+            nav:hover ul   {display: block;} /*커서 올렸을 때 block으로 보임*/
+            nav ul li      {border-top: 2px solid royalblue;
+                            background-color: white;
+                            width: 10em;}
+
+            nav ul li:hover {background-color: skyblue;}
+            a               {text-decoration: none;}
+
+        </style>
+    </head>
+    <body>
+        <nav> Menu
+            <ul>
+                <li><a href = "#">Home</a></li>
+                <li><a href = "#">News</a></li>
+                <li><a href = "#">Blog</a></li>
+                <li><a href = "#">Contact</a></li>
+            </ul>
+        </nav>
+        
+    </body>
+</html>

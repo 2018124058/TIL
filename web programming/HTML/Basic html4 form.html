@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title>Form</title>
+    </head>
+
+    <body>
+        <h1>Feedback Form</h1>
+        <form method = "post" action = "http://www.example.com"> <!--데이터를 전송할 곳-->
+            
+            <!--<input type="hidden"> contain non-visual 보이지 않음-->
+            <!--information that will also be submitted-->
+            <input type = "hidden" name = "subject" value = "Feedback Form">
+            
+            <!--<input type="text"> inserts a text field-->
+            <p><label>Name:  <!--label: 의미있는 이름 지정하기-->
+                <input name = "name" type = "text" size = "25" maxlength = "30">
+            </label></p> <!--name이 뭐지??? provider를 위한 것?-->
+
+            <p>
+                <!--<input type="submit", "reset"> insert butten
+                button:submit/clear form's contents -->
+                <input type = "submit" value = "Submit"> <!--value: 버튼에 쓰임-->
+                <input type = "reset" value = "Clear">       
+            </p>
+        </form>
+    </body>
+</html>

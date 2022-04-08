@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>New HTML5 Input Types</title>
+    </head>
+
+    <body>
+        <h1>New HTML5 Input Tyles</h1>
+        <form method = "GET" action = "http:www.example.com">
+            
+            <!--input type ="color"-->
+            <!--autofocus: only one, optional, 처음 커서-->
+            <p>
+                <label>Color: <input name ="color" type = "color" autofocus/></label>
+                    (Hexadecimal code such as #ADD8E6)
+            </p>
+            <!--input type = "date"-->
+            <p>
+                <label>Date: <input name = "date" type = "date"/> </label> (YYYY-MM-DD)                  
+            </p>
+            <!--input type = "email"-->
+            <!--placeholder: hint message, x전송-->
+            <p>
+                <label>Email: <input name = "email" type = "email" placeholder = "name@domain.com"
+                    required/></label> (name@domain.com)
+                </label>
+            </p>            
+            <!--input type = "number"-->
+            <p> 
+                <label>Number: <input name = "number" type = "number" 
+                    min = "0" max = "7" step = "1" value = "4"/></label> 
+                    (Enter a number between 0 and 7)
+            </p>
+            <!--input type = "range"-->
+            <p>
+                <label for = "range">Range: </label>
+                0 <input id = "range" name = "range" type = "range" min = "0" max ="20" value = "10"/>20
+            </p>
+
+            <!--input type = "search"-->
+            <p>
+                <label>Search:
+                    <input name = "Search" type = "search" placeholder = "search query"/></label>
+                    (Enter your search query here.)
+            </p>
+
+            <!--input type = "tel"-->
+            <p>
+                <label>Tel: <input name = "tel" type = "tel" placeholder = "(###) ###-####"
+                    pattern = "\(\d{3}\) \d{3}-\d{4}" required/></label> <!--pattern이 없으면 format 규정 없음-->
+                (###) ###-####
+            </p>
+
+            <!--input type = "time"-->
+            <p>
+                <label>Time: <input name = "time" type = "time"/></label>(hh:mm)     
+            </p>
+
+            <!--input type = "url"-->
+            <p>
+                <label>URL: <input name = "url" type = "url" placeholder = "http://www.domain.com"/></label>
+                (http://www.domainname.com)
+            </p>
+
+            <p>
+                <input type = "submit" value = "Submit"/>
+                <input type = "reset" value = "Clear"/>
+            </p>
+
+            
+        </form>
+
+
+    </body>
+</html>

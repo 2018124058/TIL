@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Relative Postitioning</title>
+        <style type = "text/css">
+            p       {font-size: 1.3em;}
+            span    {color: skyblue;
+                    font-size: 0.8em;
+                    height: 1em;}   
+            .super  {position: relative;
+                    top: -1ex;}
+            .sub    {position: relative;
+                    bottom: -1ex;}
+            .shiftleft {position: relative;
+                        left:-1ex}
+            .shiftright {position: relative;
+                        right: -50px;}
+
+        </style>
+    </head>
+    <body>
+        <p>sample text 1
+            <span class = "super"> is in superscript</span></p>
+        <p>sample text2
+            <span class = "sub"> is in subscript</span></p>
+        <p>sample text3
+            <span class = shiftleft> 왼쪽으로 이동</span></p>
+            
+        <p>sample text 4
+            <span class = "shiftright">오른쪽으로 이동</span></p>
+    </body>
+    </html>

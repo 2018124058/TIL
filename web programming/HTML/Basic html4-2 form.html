@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Complex Form</title>
+    </head>
+
+    <body>
+        <h1>Feedback Form</h1>
+        <p>please fill out this form</p>
+        <form method = "post" action = "http://www.example.com">
+            <p><label>name: <!--<label>이 없어도 똑같이 나오는데??..역할?-->
+                <input name =  "name" type = "text" size = "25">
+            </label></p>
+
+            <!--<textarea> : multiline textbox-->
+            <p><label>Comments:</br> 
+                <textarea name = "comments" rows = "4" cols = "36">Enter Comments here 
+                </textarea> <!--입력 전 default message--> <!--왜 input을 안쓰지?? input type=textarea로 큰 상자 만들 수 없긴 해-->
+            </label></p>
+
+            <!--<input type = "password"> 입력한 것 안보이게 함-->
+            <p><label>E-mail Address:
+                <input name = "email" type = "password" size = "25">
+            </label></p>
+
+            <!--<input type = "checkbox"> 복수선택 가능-->
+            <!-- name이 같다 = same group에 있다, 각각의 value는 다름-->
+            <p>
+                <strong>Things you liked:</strong>
+                <label>Site design
+                    <input name = "thingsliked" type = "checkbox" value = "Design">  </label> <!--value 역할?? 없애도 별일 없긴 한데-->
+                <label>Links
+                    <input name = "thingsliked" type = "checkbox" value = "Links" ></label>                        
+                <label>Ease of use
+                    <input name = "thingsliked" type = "checkbox" value = "Ease"></label>
+                <label>Images
+                    <input name = "thingsliked" type = "checkbox" value = "Images"></label>             
+                <label>Source code
+                    <input name = "thingsliked" type = "checkbox" value = "Code"></label>     
+            </p>
+            
+            <!--<input type = "radio"> 하나만 선택-->
+            <p>
+                <strong>How did you get to our site?:</strong></br>
+                <label>Search engine
+                    <input name = "howto" type = "radio" value = "search engine" checked></label>
+                    <!--checked는 없어도 된다 사용자가 체크하기 전 하나 체크되어있게 함-->
+                <label>Links from another site
+                    <input name = "howto" type = "radio" value = "link" ></label>
+                <label>Reference in a book
+                    <input name = "howto" type = "radio" value = "book"></label>
+                <label>Other
+                    <input name = "howto" type = "radio" value = "other"></label>            
+            </p>
+        </form>
+
+    </body>
+</html>

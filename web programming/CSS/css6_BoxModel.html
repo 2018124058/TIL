@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        
+        <title>Element Dimensions</title>
+        <style type = "text/css">
+        #round1 {border: 3px solid navy;
+                padding: 50px 50px;
+                border-radius: 15px;
+                background: pink;
+                width: 200px;
+                text-align: center;
+                margin-bottom: 20px;
+                box-shadow: 25px 25px 50px gray;}
+
+        #round2 {border: 3px solid navy;
+                padding: 50px 50px;
+                border-radius: 100px;
+                background: pink;
+                width: 200px;
+                text-align: center;
+                margin-bottom: 20px;} /*더 둥글다*/
+        </style>
+    </head>
+
+    <body>
+        <!--width: 20% screen 너비의 20프로 차지-->
+        <div style = "width: 20%;">스크린 너비의 20%를 차지할 text box</div>
+        <div style = "width: 80%; text-align: center;"> 가운데 정렬을 하고 스크린 너비의 80%를 차지할 text box</div>
+        <div style = "width: 5%; height: 150px; overflow: scroll;">
+            스크린 너비 20%, 고정된 높이를 갖고 있으며 텍스트가 박스에 넘치면 스크롤이 생긴다 </div> 
+            
+        <div id = "round1">The border-radius property adds rounded corners to an element</div>
+        <div id = "round2">border-radius 값이 커지면 더 둥근 코너를 만들 수 있다</div>    
+    </body>
+</html>

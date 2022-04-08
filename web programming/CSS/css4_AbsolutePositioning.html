@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Absolute positioning</title>
+        <style type = "text/css">
+        .background {position: absolute;
+                    top: 0px; left: 0px;
+                    z-index: 1;}
+        .foreground {position: absolute;
+                    top: 25px; left: 25px;
+                    z-index: 2;}
+
+        .text       {position: absolute;
+                    top: 50px; left: 100px;
+                    z-index:3;
+                    font-size: 100pt;}
+
+        </style>
+
+
+    </head>
+    <body>
+        <p><img src = "cssPracticeImage/clover.jpg" class = background 
+        alt = "클로버배경"/> </p>
+        <p><img src = "cssPracticeImage/rabbit.jpg" class = foreground
+        width = 50% alt = "앞에 나올 토끼 이미지"/></p>
+
+        <p class = "text">맨 앞 텍스트</p>
+    </body>
+</html>
