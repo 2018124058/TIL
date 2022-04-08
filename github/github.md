@@ -26,23 +26,50 @@ git config --global user.email "useremail@email"
 -  local(내 PC, 로컬저장소)과 remote(github.com, 원격 저장소)를 연결해주어야 한다
 
 1. `git init` 
+    - 이 폴더를 git으로 관리하겠다! (.git 폴더 생성->모든 파일 관리)
 2. `git add filename` 
     -  . 을 쓸 경우 변경사항 모두 포함
     -  파일을 stage에 올림 (staging)  
 3. `git commit -m "commit message'`  
     - stage에 올라온 변경 내역을 묶어 하나의 커밋으로 생성  
+    - 커밋 해시?가 생긴다
     -  여기까지는 local(내 pc)에서만 일어남 
 4. `git remote add origin repo.url`
     - 커밋을 올릴 repo 지정
     - github 페이지에서 copy-paste
+    - local repo와 연결시켜준다 (연결 후에는 다시 안써도 됨)
 5. `git push origin master`
     - 커밋을 원격 저장소(remote)에 업로드 
 
++ 비주얼스튜디오 코드의 +(add), 커밋메세지 쓰기, 체크 기능(commit)을 이용할 수도 있다
 + remote 대신 clone을 쓸 수도 있다 
     -  `git clone repo.url`
-    -   원격 저장소가 로컬 저장소에 'clone' 된다 (폴더가 생김?)
+    -   원격 저장소가 로컬 저장소에 'clone' 된다 (.git 폴더까지 통채로 옮김)
+
 <hr>
+
+## git 명령어  
+`git status` 
+- 현재 상태 보여줌  
+
+`git checkout 커밋해시 or branch name`  
+- 다른 커밋(다른 버전), branch로 이동  
+
+`git branch feature/Name`  
+- 새로운 feature branch 생성  
+
+`git checkout -b feature/Name`  
+- 새로운 branch를 만들고 바로 이동
+
+merge -> 변경사항 선택 후 commit 해주기
+
+
+
+
+
 <br>
+
+
 
 ## 에러 모음
 
