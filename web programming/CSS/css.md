@@ -602,11 +602,9 @@ flex-direction, flex-wrap, flex-flow, justify-content, align-items, align-conten
   - space-between; 각각의 line 사이에 공간 (수직방향)
   - spce-around; 각각의 line 사이+위아래에 공간 (수직방향) 
 
-
-
 - flex-wrap
   - nowrap; (default) 다음라인으로 안넘어감. 화면 비율을 줄일 때 다음 라인으로 아이템이 밀려나지 않고 아이템의 크기가 조절됨
-  - wrap; wrap around. 화면 비율 줄이면 여러줄로 wrap around 됨 (레이아웃 바뀜) wrap이 없으면 화면비율 줄일 때 다음 라인으로 밀려나지 않고 item사이즈가 변경됨  
+  - wrap; wrap around. 화면 비율 줄이면 여러줄로 wrap around 됨 (레이아웃 바뀜) wrap이 없으면 화면비율 줄일 때 다음 라인으로 밀려나지 않고 item사이즈가 변경됨  (itme, container 크기 지정하는 것이 좋음?)
   - wrap-reverse; wrap around하는데 위치 반대.거꾸로 위 방향으로 item이 흘러넘침 
 
 - flex-flow
