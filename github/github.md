@@ -48,7 +48,7 @@ git config --global user.email "useremail@email"
 
 <hr>
 
-## git 명령어  
+## git 명령어  (merge)
 `git status` 
 - 현재 상태 보여줌  
 
