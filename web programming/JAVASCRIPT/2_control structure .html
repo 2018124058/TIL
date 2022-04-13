@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javascript2. if</title>
+    <script>
+        // 현재 시간에 따른 인사 출력 
+        let now = new Date(); // current data and time
+        let hour = now.getHours(); // current hour(0-23)
+
+        if (hour < 12)
+            document.write("<h1>Good Morning</h1>");
+        if (hour >= 12)
+        {
+            hour = hour - 12;
+            if (hour <6)
+                document.write("<h1>Good Afternoon</h1>");
+            else
+                document.write("<h1>Good Evening</h1>")
+        }
+    </script>
+
+    <style type = "text/css">
+    /* 복리 계산 표의 css: 홀수번째, 짝수번째 칸 색 다르게 지정*/
+    table   {border-collapse: collapse; background-color: lightblue;}
+    table, td, th   {border: 1px solid black; padding: 4px;}
+    th  {text-align: left; color: white; background-color: blue;} /* table head*/
+    tr.oddrow   {background-color: white;}
+    </style>
+
+    <script>
+        // 복리 계산에 따른 표 출력
+        let ammount; // current amount of money 
+        let principal = 1000.00; // 원금 
+        let rate = 0.03; // 이자율 
+
+        document.writeln("<table>"); // 표 시작 
+        document.writeln("<caption> 이자 계산 </caption>");
+        // table head
+        document.writeln("<thead><tr><th>Year</th><th>Amount on deposit</th></tr></thead>");
+        // table row for each year
+        for (var year = 1; year <= 20; ++year)
+        {
+            amount = principal * Math.pow(1.0 + rate, year);
+            if (year % 2 !== 0) // 홀수번째 해 
+                document.writeln("<tr class = 'oddrow'><td>" + year
+                    + "</td><td>" + amount.toFixed(2) + "</td></tr>");
+            else
+                document.writeln("<tr><td>" + year + "</td><td>"
+                    + amount.toFixed(2) + "</td><tr>");
+        }
+        // 표 닫기
+        document.writeln("</tbody></table>");
+    
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -318,12 +318,18 @@ Block-level element: 가상의 box
 -  margin: 한 element의 윤곽선과 다른 element의 윤곽선 사이 여백
   -  margin-top, margin-bottom, margin-right, margin-left
   -  margin으로 상하좌우 동일한 여백 줄 수 있다 
+  -  음수값을 줄 수 있다 
 -  padding: content와 윤곽선 사이 여백
   -  padding-top, padding-bottom, padding-right, padding-left
   -  padding으로 상하좌우 동일한 여백 줄 수 있다
 - border: padding과 margin 사이 
   -  border-top, border-bottom, border-right, border-left
-  -  border-width(thin, medium, thick), border-color, border-style(none, dotted, dashed, solid, double, groove, ridge, inset, outset...)
+  -  border-width(thin, medium, thick)
+  -  border-color, border-style(none, dotted, dashed, solid, double, groove, ridge, inset, outset...)
+  - `border: npx style color;`로 한번에 지정 가능  
+  -  border-collapse: 테두리가 겹칠 때 어떻게 조정할지 (특히 table에서 활용)
+    - collapse; 통합(테두리 하나로)
+    - separate; 테두리 사이에 간격 (default)
 
 - 박스 스타일 예시 
 ```
@@ -506,7 +512,8 @@ property
 - column-rule-color
 - column-rule: column-rule- property를 줄여쓰기 
 
-` section {column-count: 3; column-gap: 30px; column-rule: 1px outset black;}
+` section {column-count: 3; column-gap: 30px; column-rule: 1px outset black;}`
+- column-count가 1이면 one column(no column line)
 
 
 # Media Query
@@ -633,6 +640,10 @@ flex-direction, flex-wrap, flex-flow, justify-content, align-items, align-conten
 - align-self :
   - 컨테이너의 align이 상속되지만 특정 아이템에 오버라이드 가능(지정 가능)
   - ex. 특정 아이템만 `align-self: center;` 가능  
+- flex
+  - flex-grow, flex-shirink, flex-basis의 shorthand  
+  - flex에 %값을 주면 레이아웃 변경 가능
+    - 부모 container가 `flex-wrap: wrap` 이어야 함 
 
 ## flex responsive 
 media query를 이용하여 화면 크기 체크, 다른 레이아웃 적용 
@@ -640,7 +651,6 @@ ex. desktop row 방향, mobile column 방향 배치
 ex. @media 800px 이하
       {flex: 100% } 100% 차지하게...?
     다른 때는 50%
-ex. 갤러리: 너비에 따라 column 개수 달라짐 
-ex. 웹사이트: 너비에 따라 배치 방향, column 개수 달라짐 
+
 !수업에서는 responsive하게 프론트엔드를 개발할 수 있게 특정 프레임워크,api를 소개하지는 않음
 

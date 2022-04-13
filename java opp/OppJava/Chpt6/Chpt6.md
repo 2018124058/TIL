@@ -232,5 +232,5 @@ a[0]=new double[5];
 a[1]=new double[3];
 a[2]=new double[4];
 ```
-
+## array 길이 변경 불가?
 

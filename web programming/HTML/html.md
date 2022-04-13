@@ -118,6 +118,16 @@ ex. a, span
     - width, height : 크기. optional(없으면 실제크기로). pixels 단위(%도 가능, 그냥 숫자만 쓰면 px단위로 됨)  
     - alt: 대체텍스트(이미지 로딩에 실패했을 경우 출력). 필수 for accessibility
 
+## video 삽입 
+```
+<video muted="" autoplay="" loop="" playsinline="" style = "width: 536px;">
+    <source src="~" type="video/mp4">
+</video>
+```  
+- muted: 소리재생x  
+- loop: 반복재생  
+-
+
 ## void/empty element: only attributes, x markup text(content)
 - 끝태그 없이 시작태그 끝에 /를 붙임  
 `<br/>` line break 한줄 띄우기  

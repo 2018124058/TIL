@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>javascript1.write</title>
+        <script>
+            //write 
+            document.write("<h1 style = 'color: blue'>");
+            document.write("Hello world </h1>");
+            document.writeln("have a nice day");
+            
+            //alert     
+            window.alert("welcome\nto javascript");
+
+            //prompt: 이름 입력 받기 
+            let name; // string entered by the user
+            name = window.prompt("이름 입력: ", "디폴트");
+            document.writeln("<h2>hello " + name + "</h2>");
+
+            // another prompt: 숫자 2개를 입력받고 합을 구함
+            let firstNumber, secondNumber; // strings entered by user  
+            let number1; // first number to add
+            let number2; // second number to add
+            let sum; // sum of number1 and number2
+
+            firstNumber = window.prompt("첫번째 정수 입력: ");
+            secondNumber = window.prompt("두번째 정수 입력: ");
+            
+            // convert numbers from strings to intergers
+            number1 = parseInt(firstNumber);
+            number2 = parseInt(secondNumber);
+            sum = number1 + number2; 
+
+            document.writeln("<h3> 두 수의 합은 " + sum + "</h3>");
+
+
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
