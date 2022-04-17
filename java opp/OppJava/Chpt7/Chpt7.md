@@ -196,6 +196,22 @@ public class B extends A{
 
 
 # 7.3 Programming with Inheritance  
+## Class Relationship: is a vs has a  
+"is a"  
+- derived class (more complex, specific) "is a" base class (more general)  
+	- ex. HourlyEmployee is an Employee  
+
+"has a"  
+- class "has a" instance variable of a class type  
+	```
+	public class Employee{
+		String name;
+		Calendar hireDate; //Calendar type
+	}
+	```
+	- ex. Employee has a Calendar 
+	- Calendar class object를 instance variable로 가진다
+
 ## Class `Object`  
 - `Object` class는 자바의 모든 class의 ancestor(클래스 계층구조의 최상위 위치)  
 - package java.lang에 포함 (import 필요 x)  
