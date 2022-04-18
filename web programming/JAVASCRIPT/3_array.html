@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array</title>
+    <script>
+        function start()
+        {
+            let array1 = [1,2,3,4];
+            let array2 = [1, , , 4];
+
+            outputArray("array1 contains", array1, document.getElementById("output1"));
+            outputArray("array1 contains", array1, document.getElementById("output2"));
+        }
+
+        // output은 결과를 넣을 document의 element를 가리킨다 
+        function outputArray(heading, array, output)
+        {
+            let content = "<h2>" + heading + "</h2><table><thead><tr><th>index</th>"
+                + "<th>value</th></thead><tbody>";
+
+            for (let i = 0; i < array.length; i++)
+            {
+                content += "<tr><th>" + i + "</th><th>" + array[i] + "</th></tr>";
+            }
+
+            content += "</tbody><table>"
+            output.innerhtml = content;
+        }
+
+        window.addEventListener("load", start, false);
+
+    </script>
+</head>
+<body>
+    <div id = "output1"></div>
+    <div id = "output2"></div>
+</body>
+</html>
