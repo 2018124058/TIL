@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset = "UTF-8">
+        <title>window 생성</title>
+        <script src = "4_window_object.js"></script>
+    </head>
+
+    <body>
+        <h1>main window</h1>
+        <p>check the features to enable for the child window<br/>
+            <input id = "toolBarCheckBox" type = "checkbox" value = "" checked = "checked"/><label>Tool Bar</label>
+            <input id = "menuBarCheckBox" type = "checkbox" value = "" checked = "checked"/><label>Menu Bar</label>
+            <input id = "locationCheckBox" type = "checkbox" value = "" checked = "checked"/><label>Address Bar</label><br/>
+            <input id = "ScrollBarsCheckBox" type = "checkbox" value = "" checked = "checked"/><label>Scroll Bars</label>
+            <input id = "statusCheckBox" type = "checkbox" value = "" checked = "checked"/><label>Status Bar</label>
+            <input id = "resizableCheckBox" type = "checkbox" value = "" checked = "checked"/><label>Resizable</label>
+        </p>
+
+        <p>enter the text that you would like to display in the child window<br/>
+            <input id = "textForChild" type = "text" value = "<h1>hi</h1>"/>
+            <input id = "createButton" type = "button" value = "Create child window" onclick = "createChildWindow()"/>
+            <input id = "modifyButton" type = "button" value = "Modify child window" onclick = "modifyChildWindow()" disabled = "disabled"/>
+            <input id = "closeButton" type = "button" value = "Close child window" onclick = "closeChildWindow()" disabled = "disabled"/>
+        </p>
+    </body>
+
+</html>
+
