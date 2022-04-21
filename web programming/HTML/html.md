@@ -7,8 +7,18 @@ html/css
 - 문서를 만든다는 접근 
 - 다른 언어와 쉽게 섞일 수 있음 
 
+##
+웹페이지 구조화: html
+웹페이지 디자인: css
+동적인 웹페이지 생성 javascript, dom
+웹서비스 활용 json, ajax 
+웹서비스 생성 node.js, express
+데이터베이스 활용: sql 
+
+html과 css를 분리하는 목적: 구조 및 내용(html)과 서식설정-formatting(css)을 분리하기 위해
+
 태그는 가방과 비슷한 개념  
-`<가방2><가방1> 내용물 </가방1></가방2>`
+`<가방2><가방 1> 내용물 </가방1></가방2>`
 
 
 # html, head, body 태그 
@@ -109,6 +119,9 @@ ex. a, span
 이미지를 hyperlinks로 사용하기  
 `<a href = “주소”><img src = “location” alt = “txt”></a>`
 
+internal linking: 문서 내부에 링킹  
+`<a href = #elementID><a>`
+
 ## image 삽입 
 - popular: png, jpeg  
 `<img src = “경로(같은 directory면 이름만)” width = “n%” alt = “대체텍스트”>`  
@@ -208,7 +221,7 @@ name이 같으면 same group, 각각의 value는 다르다. value가 화면에 �
 - select: 리스트 펼쳐짐, 선택 가능 
 ```
 <select name = "~">
-  <option selected>1</option> <!--selected: 속성, default 값>
+  <option selected>1</option> <!--selected: 속성, default 값-->
   <option>2</option>
   ...
 </select>
@@ -237,6 +250,18 @@ name이 같으면 same group, 각각의 value는 다르다. value가 화면에 �
 - url: 주소 입력 format: http://domain.com 안맞으면 오류메세지  
 `<input type=“url” name=“~”/>`
 
+- datalist
+```
+<input type = "text" name = "txt" list = "datalistID">
+    <datalist id = "datalistID">
+        <option value = "1">
+        <option value = "2">
+    </datalist>
+```
+
+
+
+
 html5 form elements
 - 속성
  - autofocus: form 당 1개만. optional. 우선적으로 커서가 위치
@@ -246,3 +271,18 @@ html5 form elements
  - formnovalidate : submit의 속성. 셀프검증 없이, 입력이 부족하거나 맞지 않아도 전송됨
  - pattern: format 지정, regular expression 사용.date, email, password, search, tel, text, url 사용가능
 
+
+```
+<meta name = "keywords" content = "word1, word2"> //인덱싱
+<meta name = "description content = "3-4 sentences"> //검색결과 설명 
+``` 
+
+self validating html5 : color, email, number, range, url, time, date, search (tel XX) 
+- only one `autofocus`
+- `required` 입력 안하면 x submit 
+- `placeholder`: temporary, x submit. 6개 text search tel url password email  
+- `pattern`
+- `step` : "any"면 default = 1로 지정 
+- `formnovalidate` submit의 속성 
+- `autocomplete = "on"` form tag에 포함. 타이핑 시 과거 입력한 데이터 보여주고 자동완성. name이나 id가 있는 element에서만 작동!!!!! 
+- `readonly`, `disabled`  

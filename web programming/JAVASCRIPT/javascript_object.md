@@ -150,6 +150,7 @@ primitive value인 string을 object처럼 다루어 method, property 사용 가�
 
 ### Quantifier   
 - 빈도수 표현 `{}`  
+
 |quantifier|의미|  
 |---|---|  
 |`{n}`| 정확히 n번 반복|  

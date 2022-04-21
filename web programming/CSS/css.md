@@ -39,14 +39,15 @@ head section에 element style 정의(document level)
 
 ```
 <style type = "text/css">
-body      {property: value; 
-        property: value;}
-p em   {property: value;}
-.className  {property: value;}
-a.className {property: value;} //anchor element 중 class 
-a:hover     {property: value;} //:hover 마우스 커서를 올렸을 때
-                               // 링크에 커서올렸을 때 default style 변경 가능 
-                               //:hover pseudo-class
+  body      {property: value; 
+          property: value;}
+  p em   {property: value;}
+  .className  {property: value;}
+  a.className {property: value;} //anchor element 중 class 
+  a:hover     {property: value;} //:hover 마우스 커서를 올렸을 때
+                                // 링크에 커서올렸을 때 default style 변경 가능 
+                                //:hover pseudo-class
+</style>                            
 ```
 
 -  class 속성을 이용하여 여러 elements에 공통 스타일 적용 가능 
@@ -111,8 +112,8 @@ https://www.w3schools.com/cssref/css_selectors.asp
 |element[att^="value"]| a[href^="https"]  |속성 value가 http로 시작하는 a elements|
 |element[att$="value"]| a[href$=".pdf"]  | value가 .pdf로 끝나는 속성을 갖고있는 a elements|
 |element[att*="value"]|    | 속성 값에 "value"가 포함되는 elements|
-|element[att|="value"] | [lang |="en"] |en, 또는 en으로 시작되는 속성value를 갖고있는 elements ex. value가 "en", "en-US"|
-|element:nth-child(숫자n)| p:nth-last-child(2)|n번째 child인 elements|
+|`element[att|="value"]` | `[lang |="en"]` |en, 또는 en으로 시작되는 속성value를 갖고있는 elements ex. value가 "en", "en-US"|
+|element:nth-child(숫자n)| p:nth-child(2)|n번째 child인 elements|
 |element:first-child|  | 첫번 째 child인 element|
 |elment:last-child| | 막내인 element|
 |e:first-of-type|  | 첫번째 child element|
@@ -210,6 +211,7 @@ gradient: 색깔간 그라데이션. used in any property that accepts image
     - color-stop: % 또는 px 단위
     - deg: 각도지정 
       - 0deg: 0도, 아래에서 위로 ->시계방향으로 돈다 90edg: 오른쪽으로 
+      - default: to bottom(180deg)
     
     1.1 vertical linear gradient 수평방향
       `background: linear-gradient(to bottom, color1 n%, color2 m%);`
