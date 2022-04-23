@@ -5,7 +5,7 @@
 - 목적: 클래스의 재사용  
 - orginal class 명칭: base class, parent class, super class  
 - new class 명칭: derived class, child class, sub class  
-- derived class는 base class의 instance variables, methods를 자동으로 물려받는다
+- derived class는 base class의 instance variables, methods를 자동으로 물려받는다 (x constructor)
 	- private instance variable의 경우 상속되지만 접근할 수 있는 권한은 없다(getter method 이용 필요)  
 	- 새로운 instance variables, methods 추가 가능
 - static variable도 상속된다  
