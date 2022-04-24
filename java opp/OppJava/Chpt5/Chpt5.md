@@ -164,7 +164,27 @@ public class Test{
 	tryToChange(x);
 	System.out.println(x);}
 } // output: 1 (actual parameter 바뀌지 않음)
-```	
+```
 
+# 5.3 딥카피  
+- privacy leak 방지  
+- 같은 객체변수를 갖는 새로운 object를 만들 때, 객체 변수 타입이 class면 객체변수를 새로 생성한다  
+- copy constructor  
+
+```
+public Person(Person original)
+{
+  if (original == null)
+  {
+    System.out.println("Fatal error.");
+    System.exit(0);
+  }
+  name = original.name;
+  born = new Date(original.born);
+  if (original.died == null)
+    died = null;
+  else
+    died = new Date(original.died);
+```
 
     
