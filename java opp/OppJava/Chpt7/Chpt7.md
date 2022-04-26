@@ -26,7 +26,7 @@
 - overriding: descendant class가 물려받은 method를 재정의(redefine, replace)하는 것  
 - 메소드 이름, 파라미터 개수, 파라미터 타입, 리턴타입이 같아야 한다 (다른 body)  
 - Java5.0 convariant return type: 오버라이딩에서 리턴타입을 descendent class type으로 바꿀 수 있다 ?  
-- acess permission  
+- access permission  
 	- private에서 public으로 바꾸는 것은 가능 (access 범위를 넓힐 수 있다)  
 	- public에서 private으로 바꾸는 것은 불가능(access 범위를 좁히는 것은 불가-컴파일 에러)  
 
@@ -48,9 +48,9 @@ public class HourlyEmployee extends Employee{
 }
 ```
 ## `super()`  
-- 부모클래스의 method 불러옴  
+- 부모클래스의 method 불러옴  `super.methodName()`
 - 자식클래스의 constructor 정의 시, super을 포함하지 않으면 자동으로 들어간다  
-	- constructor 첫줄에 super()을 포함하는 습관, 어떤 클래스든 default constuctor을 만드는 습관 필요  
+	- constructor 첫줄에 super()을 포함하는 습관, 어떤 클래스든 default constructor을 만드는 습관 필요  
 
 ```
 public class Parent{
@@ -152,7 +152,7 @@ class HourlyEmployee extends Employee{
 	}
 }
 ```
-### 다른 package의 클래스에서 procted access를 할 때 유의점  
+### 다른 package의 클래스에서 protected access를 할 때 유의점  
 ```
 package one;
 public class A{
@@ -184,8 +184,8 @@ public class B extends A{
 ## `package` Acccess  
 - no access modifier  
 - default access, friendly access라고도 불림  
-- 같은 package 내 클래스면 접근 가능 
-- 다른 package의 자식 클래스면 접근 불가능 
+- 같은 package 내 클래스만 접근 가능 
+- 다른 package의 클래스면 접근 불가능 (자식클래스여도 다른 package면 불가능) 
 - 특정 package에 속하지 않은 class: default package(unnamed package)에 속한다  
 	- 아무 package에 속한다고 착각하지 않기  
 
@@ -274,6 +274,21 @@ se1 instanceof Employee //true
 e1.getClass() == he1.getClass() //false
 e1.getClass() == se1.getClass() //false
 e1.getClass() == e2.getClass() //true
+```
+
+```
+	static void showPerson(Person71 p) {
+	
+		Customer71 test = new Customer71();
+		if (p.getClass() != test.getClass()) {
+			System.out.println("name(" + p.getName() + ")");
+            
+		}
+		else {
+			System.out.println("name(" + p.getName() + ") city(" +
+		((Customer71) p).getCity() + ") money(" + ((Customer71) p).getMoney() + ")");
+        }
+	}
 ```
 
  
