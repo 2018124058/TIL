@@ -16,5 +16,6 @@
 	<classpathentry kind="src" path="problemsolving"/>
 	<classpathentry kind="src" path="Mid"/>
 	<classpathentry kind="src" path="Mid3"/>
+	<classpathentry kind="src" path="Chpt8"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
