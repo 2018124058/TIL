@@ -90,6 +90,7 @@ Exception도 하나의 class이다
 ### InputMismatchException  
 - `import java.util.InputMismatchException;` import 필요  
 - input이 제대로된 타입으로 들어왔는지 확인한다 ex. nextInt()인데 다른 타입이 들어오면 exception 발생  
+- InputMismatchException이 일어난 경우 input buffer에는 아직 "\n" 이 남아 있다
 
 ```
 import java.util.Scanner;
@@ -117,6 +118,10 @@ Scanner keyboard = new Scanner(System.in);
 int pencils = keyboard.nextInt(); // 연필 개수
 if (pencils<0) throw new NegativeNumberException("pencils"); // 개수가 음수일시 예외 발생 
 ```
+
+###NullPointerException, ArrayIndexOutOfBoundsException, NumberFormatException
+https://docs.oracle.com/javase/7/docs/api/
+
 
 ### 직접 Exception Class를 정의하기  
 - Exception의 derived class로  
