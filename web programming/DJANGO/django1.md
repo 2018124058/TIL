@@ -107,7 +107,7 @@ cf. git bash: 리눅스의 명령어 체계를 따름
     - `STATIC_URL` static 파일들(css, javascript, images)의 위치  
 
 ### 에러 해결
-#### ModuleNotFoundError  
+#### ModuleNotFoundError: no module named 'app_name'
 - 문제: startapp으로 application을 생성해 INSTALLED_APPS에 추가해주었으나, runserver 시 `ModuleNotFoundError: No module named 'appname` 에러  
 - 원인: application 폴더가 잘못된 곳에 위치해있었다  
 - 해결: `cd` 명령어로 제대로 된 위치에서 `python manage.py startapp` 실행  
@@ -115,6 +115,11 @@ cf. git bash: 리눅스의 명령어 체계를 따름
 ![장고 폴더구조1](djangoDirectory1.JPG) ![장고 폴더구조2](djangoDirectory2.JPG) ![장고 폴더구조3](djangoDirectory3.JPG)  
     - **project_name 폴더 내부에 application 폴더가 위치한다**
 
+### ModuleNotFoundError: No module named 'decouple'  
+- 문제: runserver 시 `ModuleNotFoundError: No module named 'decouple'` 에러메세지  
+- 해결: `pip install python-decouple`  
+- 해결 시 유의점: `pip install decouple`과 `pip install python-decouple`은 다르다  
+    - `pip install decouple`을 할 시 `ImportError: cannot import name 'config' from 'decouple'`가 뜸 -> `pip uninstall decouple`로 설치 삭제 해주기 
 
 ## html 문서 띄워보기  
 - app 폴더의 views.py에 함수 입력 
