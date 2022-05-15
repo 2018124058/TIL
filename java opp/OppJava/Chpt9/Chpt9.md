@@ -15,7 +15,7 @@ Exception Handling(예외처리)
 Throwing Exception  
 - exception의 발생, 발생됐다는 시그널을 주는 것  
 
-## try-catch-final  
+## try-catch-finally  
 - throwing and handling exception은 try-catch mechanism에 의해 실행된다  
 
 ```
@@ -28,10 +28,11 @@ catch(Exception2 e2){//Exception2이 발생했을 때 handle하는 statements
 ...
 catch(ExceptionN eN){ExceptionN이 발생했을 때 handle하는 statements
 }
-final { //exception 발생 여부와 관계없이 실행할 statements
+finally { //exception 발생 여부와 관계없이 항상 실행할 statements
 }
 ```
 - 예시: 소스코드 Chpt9_1ExceptionHandling  
+- catch block 내에서 exception이 rethrow될 수 있다  
 
 ### flow in try-catch block  
 1. try block 내 exception이 발생한 경우  
@@ -46,6 +47,26 @@ final { //exception 발생 여부와 관계없이 실행할 statements
 	- try block을 모두 실행하고 catch block은 넘어간다  
 	- final block이 있다면 실행  
 	- try-catch block을 빠져나간다  
+	
+### finally block  
+- try-catch 이후 optional  
+- try나 catch block안에 return이 있어도 return 전에 finally block이 실행된다  
+  
+### Exception Controlled Loop  
+```
+boolean done = false;
+
+while(!done){
+	try{
+		//exception을 throw하는 코드 
+		done = true; // exception이 발생하지 않을 때 실행됨 
+	}
+	catch(Exception e){
+		//code
+	}
+{
+```
+- exception이 발생하지 않을 때까지(done이 true가 될 때까지) 반복된다  
 
 ## Exception Classes  
 ![exception classes](/ExceptionClasses.jpg)
