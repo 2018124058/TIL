@@ -31,6 +31,8 @@ catch(ExceptionN eN){ExceptionN이 발생했을 때 handle하는 statements
 final { //exception 발생 여부와 관계없이 실행할 statements
 }
 ```
+- 예시: 소스코드 Chpt9_1ExceptionHandling  
+
 ### flow in try-catch block  
 1. try block 내 exception이 발생한 경우  
 	- try block 내에서 exception이 발생한 곳 이후의 statement(try block 내부)는 실행되지 않는다  
@@ -142,5 +144,52 @@ public class DivisionByZeroException extends Exception{
 ### Intentionally Throwing an Exception  
 의도적으로 exception을 발생시키기   
 - Exception class의 object 생성 -> `throw`  
+
+```
+try{ 
+	Exception e = new Exception("My Exception");
+	throw e;
+	// 또는 throw new Exception("my exception"); 
+	}
+catch(Exception e){
+	System.out.println(e.getMessage());
+```
+
+# 9.2 Exception in Methods  
+## `throws`  
+- method 내 exception을 throw 하나, catch(handle) 하지는 않는 경우  
+- method 내 try-catch block이 없다  
+- method heading에 `throws`를 붙인다    
+- <->  `throws` 가 붙지 않은 다른 method는 exception을 throw한 후 catch 한다  
+
+```
+// example  
+void method1() throws Exception{throw new Exception();}
+void method2() throws myException{
+	throw new MyException("직접 정의한 exception class");
+}
+// 틀린 예시  
+void method3(){throw new Exception();} // syntax error 발생  
+```
+- 소스코드 Chpt9_3ThrowsMethod 
+
+## Exception Handling and Event Driven Programming  
+Exception handling은 event-driven programming의 예시이다  
+- object가 다른 object로 event를 보내 이를 handle하게 함  
+- event를 보내는 것을 firing an event라 부른다 
+- 이벤트 자체도 하나의 object임  
+	- exception handling에서 이벤트는 Exception class의 object  
+
+```
+public static void main(String[] args){
+	try{method1();} // method1이 main으로 exception을 transfer 
+	catch(Exception e){ // main에서 exception handling 
+		System.out.println("Exception handling in main");
+	}
+	
+static void method1() throws Exception{throw new Excepton();}
+```
+ 
+
 
 
