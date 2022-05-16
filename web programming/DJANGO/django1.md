@@ -113,7 +113,8 @@ cf. git bash: 리눅스의 명령어 체계를 따름
 - 해결: `cd` 명령어로 제대로 된 위치에서 `python manage.py startapp` 실행  
 - 폴더 구조  
 ![장고 폴더구조1](djangoDirectory1.JPG) ![장고 폴더구조2](djangoDirectory2.JPG) ![장고 폴더구조3](djangoDirectory3.JPG)  
-    - **project_name 폴더 내부에 application 폴더가 위치한다**
+    - **project_name 폴더 내부에 application 폴더가 위치한다**  
+    - project_name 폴더를 base directory라고 부른다 
 
 ### ModuleNotFoundError: No module named 'decouple'  
 - 문제: runserver 시 `ModuleNotFoundError: No module named 'decouple'` 에러메세지  
@@ -140,7 +141,7 @@ cf. git bash: 리눅스의 명령어 체계를 따름
     - .html이 아닌, url 기준으로 작성한다 
 
 # 회사 소개 사이트 만들기  
-## URL Mapping  
+# URL Mapping  
 계층적으로  이루어진 urls -> application을 이용해 효율적으로 관리  
 - 프로젝트 urls.py에 `form django.urls import include` 
 - application(예시 이름: product) 파일 내 urls.py 생성  
@@ -151,24 +152,70 @@ cf. git bash: 리눅스의 명령어 체계를 따름
     - `path('',views.function1)` 이면 url/product에서 함수가 실행된다 - product로 시작하는 url을 모두 관리하기로 했으니까!  
     - `path('first/',views.function2)`면 url/product/first에서 실행  
 
-## Static  
-### 웹서비스 내부 데이터 종류
+# Static  
+## 웹서비스 내부 데이터 종류
 1. static: 미리 준비된 데이터 
 2. media: 사용자가 업로드한 데이터
 
-### Django의 static 파일 관리  
-- settings.py  
+## Django의 static 파일 관리  
+- https://docs.djangoproject.com/en/4.0/howto/static-files/
+- settings.py에서 설정   
     - `STATICFILES_DIRS`: static 파일들의 경로 작성  
-    - `STATIC_URL`: static 파일을 제공할 url   
-    - `STATIC_ROOT`: static 파일들을 복사하여 모아 놓을 경로 (배포 시 중요)  
+        - 프로젝트 최상위 폴더 안에 static 폴더를 만든 경우 
+        `STATICFILES_DIRS = [BASE_DIR / 'static']` 기입
+        ![static 폴더](staticDirectory.JPG)
+    - `STATIC_URL`: static 파일을 제공할 url  
+        - `STATIC_URL = 'statc/'`으로 기본 설정 되어있다      
+    - `STATIC_ROOT`: static 파일들을 복사하여 모아 놓을 경로 (배포를 할 때 어떤 경로에 static 파일들을 모을 것인지)  
+        - `STATIC_ROOT = os.path.join('staticfiles')` staticfiles이라는 폴더에 모으겠다  
+        - 터미널에 `python manage.py collectstatic` 명령 시 STATIC_ROOT의 경로에 복사된다 (경로의 폴더 자동 생성)
+    - INSTALLED_APPS의 `'django.contrib.staticfiles'`: static 파일 관리 역할    
 - 수많은 static 파일들을 효율적을 찾기 위해 미리 모아두고 관리  
+- django는 폴더 이름이 static이면 안의 파일을 static이라 인식  
 
+## html에서 static 파일 가져오기
+`{% ... %}` 템플릿 언어: html 안에서 쓸 수 있는 장고의 언어 
+1. html 문서 상단에 `{% load static %}`  
+    - 준비한 static 경로의 폴더 내 static 파일을 가져옴(load)  
+2. 템플릿 언어를 통해 static 파일 활용하기  
+    - css 파일 `<link rel="stylesheet" type = "text/css" href = "{% static 'css/style.css' %}">`  
+    - 이미지 `<img src="{% static 'img/logo.png' %}" width = "30%">`
+ 
+## application 별로 static file 따로 관리하는 방법  
+1. application 폴더 내 static 폴더 생성  
+2. settings.py에서 `import os`를 해주고 `STATICFILES_DIRS = [os.path.join(BASE_DIR, 'app_name', 'static')]`  
+    - base directory 내 app_name 폴더 내 static 폴더에서 관리하겠다는 의미  
+- 적용은 base directory에 staic 폴더를 만들 때와 마찬가지로 템플릿 언어 사용  
 
+# Template 언어  
+## `{% url 'url name' %}`  
+- html 내에서 다른 html(url)로 이동할 수 있게 함   
+- url name은 urls.py의 path에서 지정된 것 (ex.`path('', views.home, name='home')` 에서 home이 name)  
+- 예시 `<a class="navbar-brand" href="{% url 'home' %}">My site</a>`
 
+## Template 상속  
+- 중복된 html 코드를 줄임  
+- Template 상속: 중복되는 코드를 하나의 html 문서에 몰아넣고, 중복되지 않는 코드만 개별적인 html 문서에서 관리하는 것  
 
-
-
-
-
-
+- 중복되는 코드를 모아둔 html  
+    ```
+    ...(생략)
+    <body>
+    <p>공통된 부분<p>
+    {% block content %} 
+      <!--각각의 html에서 서로 다른 코드가 들어가는 부분-->
+    {% endblock %}
+    ```
+    - block 이름은 자유(content일 필요x)
+    - block이 여러개일 수 있다  
+    <br>
+- template을 상속하는 (중복되는 코드를 물려받는) 각각의 html
+    ```
+    {% extends 'base.html' %} <!-- base.html을 상속한다는 의미-->
+    {% block content %}
+      <!--고유의 코드-->
+    {% endblock %} 
+    ```
+    - 예시에서는 base.html에 중복 코드를 모아둔 상태
+    - 중복되는 코드는 기재하지 않아도 된다 
 
