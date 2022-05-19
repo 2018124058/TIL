@@ -438,3 +438,105 @@ class Comment(models.Model):
 ```
 
 # 로그인 & 로그아웃 기능  
+- 로그인 로그아웃 기능을 담을 application 생성  
+### 홈 html에 로그인, 로그아웃 링크 넣기  
+`<a href = "{% url 'login' %}">로그인</a>`  
+`<a href = "{%url 'logout' %}">로그아웃</a>`  
+- 로그인 여부에 따라 화면이 다르게 뜨게 할 수 있다  
+    - request을 보낸 사용자가 로그인을 한 상태라면 `user.is_authenticated == True`
+    ```
+    {% if user.is_authenticated %}
+    안녕하세요, {{ user.username }}님! <br/> 
+    <a href = "{%url 'logout' %}">로그아웃</a>
+    {% else %}  
+    아직 로그인 되지 않았어요 <br/>
+    <a href = "{% url 'login' %}">로그인</a>
+    {% endif %}
+    ```  
+## 로그인 기능
+### urls.py에 path 추가   
+    ```
+    # 다른 application의 views와 구분하기 (include 사용 또는 as 사용)
+    # as account_views: account_views라는 다른 이름으로 지칭하겠다
+    from accounts import views as account_views 
+
+    patterns = [
+         # 로그인
+        path('login/', accounts_views.login, name='login'),
+    ]
+    ```
+
+### accounts app 내 views.py에 함수 등록  
+- django은 User을 내장객체로 갖고 있다  
+    - `from django.contrib import auth`  
+    - `auth.authenticate(request, column=value)` 데이터베이스에 저장 되어있는 객체인지 확인, 있으면 해당 유저 객체 리턴, 없으면 None 리턴  
+    - `auth.login(request, User객체)` 로그인  
+    - `auth.logout(request, User객체)` 로그아웃  
+    - `User객체.is_authenticated` 로그인 여부를 boolean으로 리턴  
+
+```
+from django.shortcuts import render,redirect
+
+# 특정 객체(ex.유저정보)가 데이터베이스에 이미 있는지 여부를 판단
+from django.contrib import auth
+
+# models로 등록해주지 않았지만 django는 User이라는 Table,내장객체를 갖고있음
+# superuser을 만들 수 있는 이유 
+from django.contrib.auth.models import User
+
+# Create your views here.
+
+def login(request):
+    # POST 요청이 들어오면 로그인 처리를 해줌
+    if request.method == 'POST':
+        userid = request.POST['username']
+        userpw = request.POST['password']
+        # 데이터베이스에 있는 회원인지 확인
+        # 이미 있으면 저장되어있는 (유저)객체를 반환
+        # 없으면 None을 반환
+        user = auth.authenticate(request, username=userid, password=userpw)
+        
+        # 유저가 존재할 때
+        if user is not None:
+            # auth의 login method: 파라미터로 request와 유저객체 받음 
+            auth.login(request, user)
+            return redirect('home') # 로그인 후 홈으로 돌아가기
+        
+        # 유저가 존재하지 않을 때
+        else:
+            return render(request,'login.html')
+    
+    # GET 요청이 들어오면 login form을 담고있는 login.html을 띄워주는 역할을 함
+    else:
+        return render(request, 'login.html')
+```
+
+### accounts app 내 로그인 html 생성 
+```
+<!--예시--!>
+<!--'login' url로 POST 요청-->
+<form action="{% url 'login' %}" method="POST">
+    {% csrf_token %}
+    username: <input type="text" name="username"><br/>
+    password: <input type="password" name="password">
+    <br/>
+    <input type="submit" value="로그인">
+</form>
+```
+    
+## 로그아웃 기능  
+### urls.py에 path 등록  
+`path('logout/', accounts_views.logout, name='logout'),`  
+
+### views.py에 로그아웃 함수 등록  
+```
+def logout(request):
+    auth.logout(request)
+    return redirect('home')  
+```  
+
+## 기타 추가 기능  
+- 로그인 성공 시 redirect할 곳을 지정하는 다른 방법  
+    - settings.py에 `LOGIN_REDIRECT_URL = "url지정"`   
+    - url을 `"/"`로 지정하면 기본 첫 페이지로 redirect 
+
