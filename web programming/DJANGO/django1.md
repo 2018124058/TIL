@@ -108,7 +108,7 @@ cf. git bash: 리눅스의 명령어 체계를 따름
 
 ### 에러 해결
 #### ModuleNotFoundError: no module named 'app_name'
-- 문제: startapp으로 application을 생성해 INSTALLED_APPS에 추가해주었으나, runserver 시 `ModuleNotFoundError: No module named 'appname` 에러  
+- 문제: startapp으로 application을 생성해 INSTALLED_APPS에 추가해주었으나, runserver `ModuleNotFoundError: No module named 'appname` 에러  
 - 원인: application 폴더가 잘못된 곳에 위치해있었다  
 - 해결: `cd` 명령어로 제대로 된 위치에서 `python manage.py startapp` 실행  
 - 폴더 구조  
@@ -132,7 +132,7 @@ cf. git bash: 리눅스의 명령어 체계를 따름
     ```
 - project_name 폴더의 urls.py에서 어떤 url 요청인지 입력  
     - `path('/test', function1)` 현재url/test에 요청이 들어온 경우 함수 function1을 실행해라  
-    - `import myapp.views` + `path('', myapp.views.home)` url(뒤에 /xxx없음)에 요청이 들어오면 application인 myapp의 views 파일에 있는 함수 home을 실행해라 
+    - `import myapp.views`(or `from myapp import views`) + `path('', myapp.views.home)` url(뒤에 /xxx없음)에 요청이 들어오면 application인 myapp의 views 파일에 있는 함수 home을 실행해라 
     - `path('', function1, name = 'hello')` name: url에 대한 임의의 이름 (optional)  
 
 - django가 url에 대한 요청을 받는다 -> 해당 url이 urls.py에 등록되었는지 확인 -> 있으면 실행해야하는 함수 찾아감 -> 함수에서 렌더링하라는 html 문서 찾아감  
@@ -167,7 +167,7 @@ cf. git bash: 리눅스의 명령어 체계를 따름
     - `STATIC_URL`: static 파일을 제공할 url  
         - `STATIC_URL = 'statc/'`으로 기본 설정 되어있다      
     - `STATIC_ROOT`: static 파일들을 복사하여 모아 놓을 경로 (배포를 할 때 어떤 경로에 static 파일들을 모을 것인지)  
-        - `STATIC_ROOT = os.path.join('staticfiles')` staticfiles이라는 폴더에 모으겠다  
+        - `import os` + `STATIC_ROOT = os.path.join('staticfiles')` staticfiles이라는 폴더에 모으겠다  
         - 터미널에 `python manage.py collectstatic` 명령 시 STATIC_ROOT의 경로에 복사된다 (경로의 폴더 자동 생성)
     - INSTALLED_APPS의 `'django.contrib.staticfiles'`: static 파일 관리 역할    
 - 수많은 static 파일들을 효율적을 찾기 위해 미리 모아두고 관리  
@@ -215,7 +215,8 @@ cf. git bash: 리눅스의 명령어 체계를 따름
     {% block content %}
       <!--고유의 코드-->
     {% endblock %} 
-    ```
+    ```  
+    - extends가 html 가장 상단에 
     - 예시에서는 base.html에 중복 코드를 모아둔 상태
     - 중복되는 코드는 기재하지 않아도 된다 
 

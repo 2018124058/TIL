@@ -362,7 +362,8 @@ blog_app.Blog.photo: (fields.E210) Cannot use ImageField because Pillow is not i
 
 # 댓글 구현하기  
 ## 1. models.py에서 댓글 모델(클래스) 생성  
-- 댓글은 어떤 게시물의 댓글인지에 대한 정보를 가짐 -> 게시물 Table을 참조해야하므로 foreign key를 넣어준다 
+- 댓글은 어떤 게시물의 댓글인지에 대한 정보를 가짐 -> 게시물 Table을 참조해야하므로 foreign key를 넣어준다  
+- 하나의 Table, 데이터베이스  
 - `val = models.ForeignKey(참조객체)` 
 ```
 # 예시
