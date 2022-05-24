@@ -144,7 +144,8 @@ path('create/', views.create, name='create'),
     `{{데이터.as_p}}` html에서 p tag로 감싸진 것처럼 
     `{{데이터.as_ul}}` html에서 ul tag로 감싸진 것처럼   
     ```
-    <form action = "" method = "POST">
+    <form action = "" method = "POST" enctype="multipart/form-data"> 
+    <!--멀티미디어 데이터도 있는 경우 enctype 속성 지정 필요 -->
     {% csrf_token %}
     <table>
         {{form.as_table}} 
@@ -265,6 +266,7 @@ def home(request):
         return render(request, 'detail.html', {'blog_detail': blog_detail})
 
     ```
+- post.id: html -> url -> view 순으로 넘어간다 
 
 4. detail 페이지가 될 html 문서 작성  
     - 예시: 함수 detail에서 detail.html로 blog_detail를 가져옴  
@@ -371,7 +373,7 @@ class Comment(models.Model):
     comment = models.CharField(max_length=200)
     date = models.DateTimeField(auto_now_add=True)
     # post는 Blog를 참조하는 foreign key 
-    post = models.ForeignKey(Blog, on_delete=models.CASCADE)
+    post = models.ForeignKey(Blog, on_delete=models.CASCADE) # optional parameter null=True, blank=True,
 
     def __str__(self):
         return self.comment # comment(내용)을 보여주게 된다 
@@ -423,7 +425,7 @@ class Comment(models.Model):
             # 저장
             finished_form.save()
 
-        return redirect('detail', blog_id) # blog_id를 prefix로 갖고있는 detail url
+        return redirect('detail', blog_id) # blog_id를 prefix로 갖고있는 detail url로 돌아간다 
     ```
 ## html에서 작성된 댓글 보여주기  
 - `참조 당하는객체.참조하는 객체_set.all` 특정 객체를 참조하는 객체의 집합을 모두 가져오기  
