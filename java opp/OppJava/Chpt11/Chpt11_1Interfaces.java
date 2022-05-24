@@ -6,12 +6,12 @@ interface InterfaceOtherB{
 	public String getStuff(String someStuff);
 }
 
-public class Chpt11_Interface implements InterfaceA, InterfaceOtherB {
+public class Chpt11_1Interfaces implements InterfaceA, InterfaceOtherB {
 	
 	private int intStuff = 42;
 	
 	public static void main(String[] args) {
-		Chpt11_Interface object = new Chpt11_Interface();
+		Chpt11_1Interfaces object = new Chpt11_1Interfaces();
 		System.out.println(object.getStuff() + object.getStuff("Hello"));
 
 	}
