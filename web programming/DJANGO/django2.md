@@ -543,3 +543,26 @@ def logout(request):
     - settings.py에 `LOGIN_REDIRECT_URL = "url지정"`   
     - url을 `"/"`로 지정하면 기본 첫 페이지로 redirect 
 
+# 회원가입 기능  
+- html에서 회원가입 링크 등록 `{% url 'signup' %}`  
+## urls.py에 path 등록  
+`path('signup/', accounts_views.signup, name='signup')`  
+## forms.py에 회원가입 form 등록, 회원가입 html 작성  
+## views.py에 함수 등록   
+- 회원가입: `User.objects.create_user()`
+```
+from django.contrib import auth
+from django.contrib.auth.models import User # User 객체 import 
+
+def signup(request):
+    if request.method == 'POST':
+        if request.POST['password'] == request.POST['repeat']:
+            # repeat: form에서 비밀번호를 한 번 더 입력하게 함 
+            # 회원가입 
+            new_user = User.objects.create_user(username=request.POST['username'], password=request.POST['password'])
+            # 로그인
+            auth.login(request, new_user)
+            # 홈 리다이렉션
+            return redirect('home')
+    return render(request, 'register.html') # POST 요청이 아닐 경우 
+```

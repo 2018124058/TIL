@@ -1,10 +1,13 @@
 # Bootstrap  
 https://getbootstrap.com/  
+
 - 자주 쓰이는 css 코드를 가져올 수 있다  
 - bootstrap 코드가 인식되도록 설정을 해주어야 한다 
     - 방법 1. Bootstrap 관련 코드를 직접 다운 받아 설치하기 
     - 방법 2. CDN 이용하기  
         - 다운로드 없이 네트워크상으로 실시간으로 가져옴  
+        - head에 `<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">`
+
 - bootstrap 의 layout: 정렬 지원  
     - elements를 container에 담기 `<div class="container">`
     - grid: bootstrap은 기본적으로 화면을 12등분해 정렬  
