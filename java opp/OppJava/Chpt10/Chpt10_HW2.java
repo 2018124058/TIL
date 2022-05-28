@@ -22,16 +22,16 @@ public class Chpt10_HW2 {
 		
 		if (start == last)
 			return data[start];
-		else {
-			int mid = (start + last)/2;
-			int max1 = largest(data, start, mid);
-			int max2 = largest(data, mid+1, last);
+		
+		int mid = (start + last)/2;
+		int max1 = largest(data, start, mid);
+		int max2 = largest(data, mid+1, last);
 			
-			if (max1 >= max2)
-				return max1;
-			else
-				return max2;
-		}
+		if (max1 >= max2)
+			return max1;
+		else
+			return max2;
+		
 		
 	}
 }

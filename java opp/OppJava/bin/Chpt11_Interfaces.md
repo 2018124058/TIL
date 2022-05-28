@@ -55,16 +55,16 @@ public class class1 implements interface{
 ## Inconsistent Interfaces  
 
 ```
-public interface interfaceA {public int getStuff();}
-public interface interfaceB {public String getStuff();}
+interface interfaceA {public int getStuff();}
+interface interfaceB {public String getStuff();}
 
 public class YourClass implements InterfaceA, interfaceB{...} //error
 ```
 - YourClass에서 getStuff를 정의해야 하는데 interfaceA와 interfaceB에서 abstract method가 이름은 같고 return type만 다르기 때문에 compiler가 어떤 것을 선택해야 할지 알 수 없어 에러가 난다  
 
 ```
-public interface InterfaceA {int ANSWER = 42;}
-public interface InterfaceB {int ANSWER = 0;}
+interface InterfaceA {int ANSWER = 42;}
+interface InterfaceB {int ANSWER = 0;}
 
 public class YourClass implements interfaceA, interface B{ int x = ANSWER + 3 } //error
 ```
