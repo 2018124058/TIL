@@ -193,7 +193,7 @@ cf. git bash: 리눅스의 명령어 체계를 따름
 - url name은 urls.py의 path에서 지정된 것 (ex.`path('', views.home, name='home')` 에서 home이 name)  
 - 예시 `<a class="navbar-brand" href="{% url 'home' %}">My site</a>`
 
-## Template 상속  
+# Template 상속  
 - 중복된 html 코드를 줄임  
 - Template 상속: 중복되는 코드를 하나의 html 문서에 몰아넣고, 중복되지 않는 코드만 개별적인 html 문서에서 관리하는 것  
 
@@ -219,6 +219,11 @@ cf. git bash: 리눅스의 명령어 체계를 따름
     - extends가 html 가장 상단에 
     - 예시에서는 base.html에 중복 코드를 모아둔 상태
     - 중복되는 코드는 기재하지 않아도 된다 
+
+## 어떤 앱에서든 상속할 수 있는 template 만들기  
+1. 가장 상위폴더(BASE_DIR)에 templates 폴더를 만든다  
+    - 폴더 내에 base.html 등 만들기  
+2. settings.py의 TEMPLATES의 `'DIRS=[]`를 `'DIRS': [os.path.join(BASE_DIR, 'templates')],`로 고쳐 django가 templates 폴더를 인식할 수 있게 한다  
 
 ## static 에러 해결  
 ### css 파일 적용이 안될 때  

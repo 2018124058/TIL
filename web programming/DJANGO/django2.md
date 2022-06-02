@@ -461,7 +461,7 @@ class Comment(models.Model):
     ```
     # 다른 application의 views와 구분하기 (include 사용 또는 as 사용)
     # as account_views: account_views라는 다른 이름으로 지칭하겠다
-    from accounts import views as account_views 
+    from accounts import views as accounts_views 
 
     patterns = [
          # 로그인
@@ -483,8 +483,7 @@ from django.shortcuts import render,redirect
 # 특정 객체(ex.유저정보)가 데이터베이스에 이미 있는지 여부를 판단
 from django.contrib import auth
 
-# models로 등록해주지 않았지만 django는 User이라는 Table,내장객체를 갖고있음
-# superuser을 만들 수 있는 이유 
+# models로 등록해주지 않았지만 django는 User이라는 Table,내장객체를 갖고있음 (superuser을 바로 만들 수 있는 이유) 
 from django.contrib.auth.models import User
 
 # Create your views here.
