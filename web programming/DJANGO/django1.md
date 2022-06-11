@@ -132,8 +132,10 @@ cf. git bash: 리눅스의 명령어 체계를 따름
     ```
 - project_name 폴더의 urls.py에서 어떤 url 요청인지 입력  
     - `path('/test', function1)` 현재url/test에 요청이 들어온 경우 함수 function1을 실행해라  
-    - `import myapp.views`(or `from myapp import views`) + `path('', myapp.views.home)` url(뒤에 /xxx없음)에 요청이 들어오면 application인 myapp의 views 파일에 있는 함수 home을 실행해라 
+    - `import myapp.views`(or `from myapp import views`) + `path('', myapp.views.home)  ` url(뒤에 /xxx없음)에 요청이 들어오면 application인 myapp의 views 파일에 있는 함수 home을 실행해라   
+        - `from .views import *`를 하면 함수명 앞에 `views.`을 써주지 않아도 된다
     - `path('', function1, name = 'hello')` name: url에 대한 임의의 이름 (optional)  
+
 
 - django가 url에 대한 요청을 받는다 -> 해당 url이 urls.py에 등록되었는지 확인 -> 있으면 실행해야하는 함수 찾아감 -> 함수에서 렌더링하라는 html 문서 찾아감  
 
