@@ -29,14 +29,14 @@ public class Test{
 	public static void main(String[]args){
 		Product p = new Product();
 		TV t = new TV();
-		foo(p);
-		foo(t);
+		foo(p); // output: product
+		foo(t); // output: tv 
 	}
 	static void foo(Product pr){print(pr)}
 }
 ```
 	- late binding -> foo에 argument로 TV class object가 오면 late binding이 발생해 TV class의 toString method가 호출된다. 
-	- late binding: binding이 run time에 일어난다.class에 맞는 함수 호출 (<-> binding이 compile time에 발생해 Product의 method로 고정되면, TV의 method가 호출되지 않는다)  
+	- late binding: binding이 run time에 일어난다. class에 맞는 함수 호출 (<-> 반대로 binding이 compile time에 발생해 Product의 method로 고정되면, TV의 method가 호출되지 않는다)  
 	- 어떤 것이 파라미터로 패싱되느냐에 따라 호출되는 method가 달라진다 = dynamic binding(=late binding)  
 
 ## Upcasting and Downcasting  
@@ -114,7 +114,7 @@ public class Sale{
 - good copy (using polymorphism)  
 
 	```
-	public static Sale[] badCopy(Sale[]a){
+	public static Sale[] goodCopy(Sale[]a){
 	Sale[] b = new Sale(a.length);
 	for (int i = 0; i < a.length; i++)
 		b[i] = a[i].clone();

@@ -6,7 +6,7 @@ public class Chpt9_3ThrowsMethod {
 
 class ScoreNotSetException extends Exception{
 	public ScoreNotSetException() {super("Score not set");}
-	public ScoreNotSetException(String msg) {super("msg");}
+	public ScoreNotSetException(String msg) {super(msg);}
 }
 
 class HighScore{

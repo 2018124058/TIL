@@ -164,7 +164,7 @@ public class DivisionByZeroException extends Exception{
 
 ### Intentionally Throwing an Exception  
 의도적으로 exception을 발생시키기   
-- Exception class의 object 생성 -> `throw`  
+- Exception class의 object 생성 -> `throw object` 
 
 ```
 try{ 
