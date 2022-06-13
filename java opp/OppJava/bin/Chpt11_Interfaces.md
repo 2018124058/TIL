@@ -50,7 +50,14 @@ public class class1 implements interface{
 - `extends`한 interface가 갖고 있는 abstract method를 갖게 된다  
 - interface 간에도 계층구조가 있다  
 
-## `comparable` interface  
+## `Comparable` interface  
+- Comparable interface: java.lang package 안에 있음. 따로 import 필요 x  
+- `public int compareTo(Object other);` 이라는 method heading 하나만을 갖고 있다  
+	- 호출한 object가 앞쪽에 나오면 음수를 리턴  
+	- 같으면 0 리턴  
+	- 호출한 object가 뒤쪽에 나오면 양수를 리턴  
+- Comparable interface를 이용해 sort를 할 수 있다 (소스코드 chpt11_2)  
+
 
 ## Inconsistent Interfaces  
 

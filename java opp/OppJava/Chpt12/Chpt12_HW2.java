@@ -28,25 +28,23 @@ class AClass142<T extends Speakable > {
 	}
 }
 
-// your code here
+// your code
 class Speakable{
-	
 	public String speak() {
 		return this.toString();
 	}
-	
 }
 
-class BClass142 extends Speakable{
+class BClass142 extends Speakable {
 	
 	public String toString() {
 		return "BClass";
 	}
 }
 
-class CClass142 extends Speakable{
+class CClass142 extends Speakable {
 	
 	public String toString() {
 		return "CClass";
-	}
+	}	
 }

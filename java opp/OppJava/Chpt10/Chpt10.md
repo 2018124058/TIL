@@ -60,7 +60,87 @@ public static void writeVertical(int n){
  	}
  }
 ```
+# 10.2 Binary Search  
+## 원리  
+- sorting이 된 array에서 주어진 value가 있는지 찾는 것  
+- 처음부터 끝까지 보는 것보다 binary search가 효율적이다  
+- value를 찾으면 해당 value의 index 리턴, 없으면 -1을 리턴  
+- recurision 을 사용  
+	- 두 개의 stopping case: first>last가 됐을 때, key를 찾았을 때 
+- 반씩 계속 잘라서 찾아본다 'divide and conquer' technique  
+```
+/*
+precondition:
+a[first] <= a[first+1] <= a[first+2] ... <= a[last] sorting된 상태  */
+if (first > last) // stopping case  
+	return -1;    // 탐색 종료, value가 없다 
+else{
+	mid = first와 last의 대략적인 중간값;  
+	if (key == a[mid]) // stopping case
+		return mid; 
+	else if key < a[mid]
+		return a[first]부터 a[mid-1]까지 찾은 결과값; // recursion
+	else if key > a[mid] 
+		return a[mid+1]부터 a[last]까지 찾은 결과값; // recursion  
+}
+```
+## Binary Search 예시
+  
+```
+public static int search(int[] a, int first, int last, int key){
+	int result = 0; // to keep the compiler happy
+	
+	if (first > last)
+		result = -1;
+	else{
+		int mid = (first + last)/2;
+		
+		if(key == a[mid])
+			result = mid;
+		else if (key < a[mid])
+			result = search(a, first, mid -1, key);
+		else if (key > a[mid])
+			result = search(a, mid+1, last, key);
+	}
+	return result;
+}
+```
 
+## Iterative Version of Binary Search  
+- 더 효율적  
+
+```
+public static int search(int[] a, int lowEnd, int highEnd, int key){
+	int first = lowEnd;
+	int last = highEnd;
+	int mid;
+	
+	boolean = found = false;
+	int result = 0; 
+	
+	while((first<=last)&&!(found)){
+		mid = (first+last)/2;
+		
+		if (key == a[mid]){
+			found = true;
+			result = mid;
+		}
+		else if (key < a[mid]){
+			last = mid - 1;
+		}
+		else if (key > a[mid]){
+			first = mid + 1;
+		}
+	}
+	if (first > last)
+		result = -1;
+	
+	return result;
+}
+```
+
+	
+		  
   
 
  
