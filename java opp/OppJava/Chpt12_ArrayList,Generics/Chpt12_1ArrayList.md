@@ -10,6 +10,8 @@
 
 ### wrapper class type `ArrayList`  
 ```
+import java.util.ArrayList; 
+
 ArrayList<Integer> list = new ArrayList<Integer>();
 
 list.add(5); // automatic boxing to Integer

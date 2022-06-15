@@ -68,6 +68,7 @@ public static void writeVertical(int n){
 - recurision 을 사용  
 	- 두 개의 stopping case: first>last가 됐을 때, key를 찾았을 때 
 - 반씩 계속 잘라서 찾아본다 'divide and conquer' technique  
+
 ```
 /*
 precondition:
@@ -84,6 +85,7 @@ else{
 		return a[mid+1]부터 a[last]까지 찾은 결과값; // recursion  
 }
 ```
+
 ## Binary Search 예시
   
 ```
@@ -115,7 +117,7 @@ public static int search(int[] a, int lowEnd, int highEnd, int key){
 	int last = highEnd;
 	int mid;
 	
-	boolean = found = false;
+	boolean found = false;
 	int result = 0; 
 	
 	while((first<=last)&&!(found)){

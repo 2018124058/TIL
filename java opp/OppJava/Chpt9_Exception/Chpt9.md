@@ -64,7 +64,7 @@ while(!done){
 	catch(Exception e){
 		//code
 	}
-{
+}
 ```
 - exception이 발생하지 않을 때까지(done이 true가 될 때까지) 반복된다  
 
