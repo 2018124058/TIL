@@ -13,9 +13,6 @@
 	<classpathentry kind="src" path="Chpt5"/>
 	<classpathentry kind="src" path="Chpt6"/>
 	<classpathentry kind="src" path="Chpt7"/>
-	<classpathentry kind="src" path="problemsolving"/>
-	<classpathentry kind="src" path="Mid"/>
-	<classpathentry kind="src" path="Mid3"/>
 	<classpathentry kind="src" path="Chpt8_Polymorphism, AbstractClass"/>
 	<classpathentry kind="src" path="Chpt9_Exception"/>
 	<classpathentry kind="src" path="Chpt10_Recursion"/>
@@ -23,6 +20,5 @@
 	<classpathentry kind="src" path="Chpt12_ArrayList,Generics"/>
 	<classpathentry kind="src" path="Chpt13_JavaLinkedList"/>
 	<classpathentry kind="src" path="Chpt14_Collections"/>
-	<classpathentry kind="src" path="Final"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

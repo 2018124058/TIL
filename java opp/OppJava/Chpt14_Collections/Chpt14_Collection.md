@@ -196,10 +196,11 @@ q.peek(); // 2 삭제는 안함 [2,3]
 	- 언제나 head(가장 앞)에 가장 작은 데이터가 온다   
 	- 데이터를 넣을 때 가장 작은 데이터가 head에 있도록 한다  
 	- 하지만 head 외에 다른 데이터들이 sorting 되지는 않는다  
+	- `import java.util.PriorityQueue;` 필요  
 	- object 예시: `PriorityQueue<Integer> pq = new PriorityQueue<Integer>();`  
 - Maximum Priority Queue  
 	- 언제나 head에 가장 큰 데이터가 있다  
-	- object 예시: `PriorityQueue<Integer> pq = new PriorityQueue<Integer>(Collections.reverseOrder());`  
+	- object 예시: `PriorityQueue<Integer> pq = new PriorityQueue<Integer>(Collections.reverseOrder());`   
 	
 ### Methods in PriorityQueue  
 - `add(E e)`: e를 삽입하고 삽입했으면 true 리턴  
