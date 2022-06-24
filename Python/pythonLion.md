@@ -1,4 +1,4 @@
-# 라이언 파이썬 강의 메모 
+# 라이언 파이썬 강의 메모  
 
 DRY(don't repeat yourself)  
 들여쓰기의 중요성  
@@ -31,7 +31,6 @@ food.append("김밥")
 # 값 삭제
 del foods[0]
 ```
-
 
 ## dictionary  
 정의 `{key:value}`  
