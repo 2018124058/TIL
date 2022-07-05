@@ -3,3 +3,5 @@ Human intelligence includes artificial intelligence – mechanized intelligence,
 - b/c human can also mechanized intelligence. 기호를 만듦. 
 
 # Modern Computer 
+
+## Storing Float
