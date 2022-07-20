@@ -235,7 +235,8 @@ name이 같으면 same group, 각각의 value는 다르다. value가 화면에 �
 `<input type = “date” name = “~”/>`  
 (yyyy-mm-dd)이렇게 형식 덧붙여줘도 좋다
 - email: 메일 주소 기입  
-`<input type = “email” name = “~”/>`
+`<input type = “email” name = “~”/>`  
+  - input이 '~@~'의 형태인지 검사한다 
 - number: 정해진 범위 내에 선택. step 없으면 default값은 1. value는 default 초기값  
 `<input type = “number” name =“~” min =“n” max =“n” step=“n” value=“n”/>`
 - range: 범위 내 range bar 생성.step 없으면 default값은 1. value는 default 초기값  
@@ -244,7 +245,8 @@ name이 같으면 same group, 각각의 value는 다르다. value가 화면에 �
 - search: 검색용  
 `<input type=“search” name=“~”/>`
 - tel: 전화번호 기입. format(pattern)을 정할 수 있음(안맞으면 오류메세지)  
-`<input type=“tel” name=“~” pattern=“~”/>`
+`<input type=“tel” name=“~” pattern=“~”/>`  
+  - `pattern="[0-1]{3}-[0-9]{3,4}-[0-9]{4}"`
 - time: 시간 hh:mm  
 `<input type=“time” name=“~”/>`
 - url: 주소 입력 format: http://domain.com 안맞으면 오류메세지  
