@@ -37,7 +37,9 @@ def mypage(request, user_id):
 ## mypage 수정  
 ### update_mypage url  
 html `{% url 'update_mypage' user.id %}`
-urls.py `path('update/<int:user_id>', update_mypage, name="update_mypage"),`
+urls.py `path('update/', update_mypage, name="update_mypage"),`  
+- update의 경우 url에서 user.id를 따로 받을 필요가 없었는데, 왜일까?? 
+
 ### views.py  
 - GET 요청: 프로필 수정 페이지 띄워주기  
     - 기존 유저 정보를 form에 입력해둔 상태로 보여준다  
